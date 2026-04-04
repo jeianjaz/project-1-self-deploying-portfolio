@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeian Jasper | Cloud/DevOps Engineer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Jeian Jasper</h1>
+        <p class="subtitle">Aspiring Cloud / DevOps Engineer</p>
+        <p class="links">
+            <a href="https://github.com/jeianjaz" target="_blank">GitHub</a> |
+            <a href="https://www.linkedin.com/in/jeianjasper/" target="_blank">LinkedIn</a>
+        </p>
+    </header>
+
+    <main>
+        <section>
+            <h2>About Me</h2>
+            <p>I build cloud infrastructure with Terraform, automate deployments with CI/CD pipelines, and follow DevSecOps best practices. This site is hosted on AWS S3 with CloudFront, provisioned entirely by Terraform.</p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="tag">AWS (S3, EC2, VPC, RDS, Lambda, IAM)</span>
+                <span class="tag">Terraform</span>
+                <span class="tag">Docker</span>
+                <span class="tag">GitHub Actions CI/CD</span>
+                <span class="tag">Linux / Bash</span>
+                <span class="tag">Python</span>
+                <span class="tag">Prometheus / Grafana</span>
+                <span class="tag">DevSecOps (Checkov, Trivy)</span>
+                <span class="tag">Git / GitHub</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+
+            <div class="project">
+                <h3>1. Self-Deploying Portfolio (This Site)</h3>
+                <p>Serverless resume on S3 + CloudFront + Lambda visitor counter + DynamoDB. 4-stage CI/CD pipeline with Checkov security scanning. All infrastructure provisioned by Terraform.</p>
+            </div>
+
+            <div class="project">
+                <h3>2. Self-Healing 3-Tier Infrastructure</h3>
+                <p>Terraform-provisioned VPC + EC2 + RDS with CloudWatch alarms triggering Lambda for auto-recovery. Includes ADRs and incident runbooks.</p>
+            </div>
+
+            <div class="project">
+                <h3>3. Observable Containers with AI Alerting</h3>
+                <p>Dockerized Flask app with Prometheus + Grafana monitoring, CloudWatch Anomaly Detection, Trivy image scanning, and chaos testing.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <p><strong>Bachelor of Science in Information Technology</strong> — Quezon City University (Expected Graduation July 2026)</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Visitor Count: <span id="visitor-count">Loading...</span></p>
+        <p>Hosted on AWS S3 | Provisioned by Terraform | Deployed via GitHub Actions</p>
+    </footer>
+
+    <script>
+        // Visitor counter - will connect to API Gateway + Lambda later
+        // For now, just a placeholder
+        document.getElementById('visitor-count').textContent = '...';
+    </script>
+</body>
+</html>

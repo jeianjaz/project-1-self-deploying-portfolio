@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #0d1117;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #58a6ff;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #8b949e;
+    margin-top: 0.5rem;
+}
+
+.links {
+    margin-top: 1rem;
+}
+
+.links a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    color: #58a6ff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #30363d;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #c9d1d9;
+}
+
+.project {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.project h3 {
+    color: #58a6ff;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #8b949e;
+    font-size: 0.9rem;
+}
+
+footer span {
+    color: #58a6ff;
+    font-weight: bold;
+}
