@@ -68,9 +68,16 @@
     </footer>
 
     <script>
-        // Visitor counter - will connect to API Gateway + Lambda later
-        // For now, just a placeholder
-        document.getElementById('visitor-count').textContent = '...';
-    </script>
+    // Visitor counter - calls API Gateway → Lambda → DynamoDB
+    fetch('https://vahv75gzk6.execute-api.ap-southeast-1.amazonaws.com/count')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('visitor-count').textContent = data.visitor_count;
+        })
+        .catch(error => {
+            document.getElementById('visitor-count').textContent = 'N/A';
+            console.error('Error fetching visitor count:', error);
+        });
+</script>
 </body>
 </html>

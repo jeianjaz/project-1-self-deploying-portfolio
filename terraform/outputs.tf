@@ -23,3 +23,8 @@ output "cloudfront_distribution_id" {
   description = "CloudFront distribution ID"
   value       = aws_cloudfront_distribution.website.id
 }
+
+output "api_gateway_url" {
+  description = "API Gateway URL for visitor counter"
+  value       = "${aws_apigatewayv2_api.visitor_counter.api_endpoint}/count"
+}
