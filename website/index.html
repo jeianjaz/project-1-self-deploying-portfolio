@@ -46,67 +46,19 @@
         .anim-fade-d1 { animation: fade-up 0.5s ease-out 0.1s both; }
         .anim-fade-d2 { animation: fade-up 0.5s ease-out 0.2s both; }
         .anim-fade-d3 { animation: fade-up 0.5s ease-out 0.3s both; }
-        .nav-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #3b82f6;
-            border-radius: 1px;
-            transition: width 0.3s ease;
-        }
-        .nav-underline:hover::after,
-        .nav-underline.active::after {
-            width: 100%;
-        }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-300 font-sans antialiased dot-grid">
 
     <!-- Nav -->
-    <nav class="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md z-50" id="navbar">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="index.html" class="text-zinc-100 font-bold text-lg tracking-tight">JJ<span class="text-blue-500">.</span></a>
-
-            <!-- Desktop -->
-            <div class="hidden sm:flex items-center gap-6 text-sm">
-                <a href="#about" class="nav-link nav-underline relative text-zinc-400 hover:text-zinc-100 transition-colors">About</a>
-                <a href="#skills" class="nav-link nav-underline relative text-zinc-400 hover:text-zinc-100 transition-colors">Skills</a>
-                <a href="#projects" class="nav-link nav-underline relative text-zinc-400 hover:text-zinc-100 transition-colors">Projects</a>
-                <a href="status.html" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Status
-                </a>
-            </div>
-
-            <!-- Mobile toggle -->
-            <button id="menu-toggle" class="sm:hidden text-zinc-400 hover:text-zinc-100 transition-colors p-1" aria-label="Toggle menu">
-                <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"/>
-                </svg>
-                <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
+    <nav class="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md z-50">
+        <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-end">
+            <a href="status.html" class="text-sm text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Status
+            </a>
         </div>
-
-        <!-- Gradient border line -->
         <div class="h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
-
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden sm:hidden bg-zinc-950/95 backdrop-blur-lg border-b border-zinc-800/50">
-            <div class="max-w-4xl mx-auto px-6 py-4 space-y-3">
-                <a href="#about" class="mobile-link block text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1">About</a>
-                <a href="#skills" class="mobile-link block text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1">Skills</a>
-                <a href="#projects" class="mobile-link block text-sm text-zinc-400 hover:text-zinc-100 transition-colors py-1">Projects</a>
-                <a href="status.html" class="mobile-link block text-sm text-blue-400 hover:text-blue-300 transition-colors py-1 flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Status
-                </a>
-            </div>
-        </div>
     </nav>
 
     <!-- Hero -->
@@ -124,9 +76,7 @@
                     Quezon City, Philippines
                 </div>
                 <p class="mt-1.5 text-sm text-zinc-400">
-                    Cloud Engineer <span class="text-zinc-600 mx-1">\</span>
-                    DevOps <span class="text-zinc-600 mx-1"></span>
-
+                    Cloud Engineer <span class="text-zinc-600 mx-1">\</span> DevOps
                 </p>
                 <div class="mt-2.5">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
@@ -213,7 +163,7 @@
         <section id="skills" class="py-10 sm:py-12 border-t border-zinc-800/50 anim-fade-d2">
             <div class="flex items-center gap-3 mb-6">
                 <div class="w-1 h-5 rounded-full bg-blue-500"></div>
-                <h2 class="text-sm sm:text-base font-bold text-zinc-100 uppercase tracking-wide">Skills</h2>
+                <h2 class="text-sm sm:text-base font-bold text-zinc-100 uppercase tracking-wide">Tech Stack</h2>
             </div>
 
             <div class="space-y-5">
@@ -394,50 +344,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const iconOpen = document.getElementById('menu-icon-open');
-        const iconClose = document.getElementById('menu-icon-close');
-
-        menuToggle.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            mobileMenu.classList.toggle('hidden');
-            iconOpen.classList.toggle('hidden');
-            iconClose.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                iconOpen.classList.remove('hidden');
-                iconClose.classList.add('hidden');
-            });
-        });
-
-        // Scroll spy
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY + 120;
-            sections.forEach(section => {
-                const top = section.offsetTop;
-                const height = section.offsetHeight;
-                const id = section.getAttribute('id');
-                const link = document.querySelector(`.nav-link[href="#${id}"]`);
-                if (!link) return;
-                if (scrollY >= top && scrollY < top + height) {
-                    link.classList.add('text-zinc-100', 'active');
-                    link.classList.remove('text-zinc-400');
-                } else {
-                    link.classList.remove('text-zinc-100', 'active');
-                    link.classList.add('text-zinc-400');
-                }
-            });
-        });
-
         // Animated visitor count-up
         function animateCount(target) {
             const el = document.getElementById('visitor-count');
