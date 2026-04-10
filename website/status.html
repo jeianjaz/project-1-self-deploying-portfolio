@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Status | Jeian Jasper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Infrastructure Status</h1>
+        <p class="subtitle">Real-time AWS cost & resource dashboard</p>
+        <p class="links">
+            <a href="index.html">← Back to Portfolio</a>
+        </p>
+    </header>
+
+    <main>
+        <section>
+            <h2>AWS Cost This Month</h2>
+            <p id="cost-period">Loading...</p>
+            <p id="cost-total" style="font-size: 2rem; color: #58a6ff; font-weight: bold;">...</p>
+            <p id="cost-message"></p>
+        </section>
+
+        <section>
+            <h2>Cost Breakdown by Service</h2>
+            <div id="cost-services">
+                <p>Loading cost data...</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Infrastructure Components</h2>
+            <div class="project">
+                <h3>Frontend</h3>
+                <p>S3 (static hosting) → CloudFront (CDN + HTTPS) → Browser</p>
+            </div>
+            <div class="project">
+                <h3>Backend</h3>
+                <p>API Gateway (HTTP API) → Lambda (Python 3.12) → DynamoDB (visitor counter)</p>
+            </div>
+            <div class="project">
+                <h3>CI/CD</h3>
+                <p>GitHub Actions → Checkov security scan → Terraform validate → S3 sync → CloudFront invalidation</p>
+            </div>
+            <div class="project">
+                <h3>Security</h3>
+                <p>S3 public access blocked | CloudFront OAC | IAM least privilege | Checkov scanning | HTTPS enforced</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Provisioned by Terraform | Deployed via GitHub Actions</p>
+    </footer>
+
+    <script>
+        const API_URL = 'https://vahv75gzk6.execute-api.ap-southeast-1.amazonaws.com/status';
+
+        fetch(API_URL)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cost-period').textContent = `Period: ${data.period}`;
+                document.getElementById('cost-total').textContent = `$${data.total_cost} ${data.currency}`;
+                document.getElementById('cost-message').textContent = data.message;
+
+                const servicesDiv = document.getElementById('cost-services');
+                if (data.services.length === 0) {
+                    servicesDiv.innerHTML = '<p>No costs recorded yet — running on free tier! 🎉</p>';
+                } else {
+                    servicesDiv.innerHTML = data.services.map(s =>
+                        `<div class="project" style="display:flex; justify-content:space-between; padding:0.8rem 1.2rem;">
+                            <span>${s.service}</span>
+                            <span style="color:#58a6ff; font-weight:bold;">$${s.cost}</span>
+                        </div>`
+                    ).join('');
+                }
+            })
+            .catch(error => {
+                document.getElementById('cost-total').textContent = 'N/A';
+                document.getElementById('cost-message').textContent = 'Could not fetch cost data';
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>

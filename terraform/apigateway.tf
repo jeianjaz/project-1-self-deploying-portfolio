@@ -49,3 +49,24 @@ resource "aws_lambda_permission" "api_gateway" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.visitor_counter.execution_arn}/*/*"
 }
+
+resource "aws_apigatewayv2_integration" "cost_dashboard" {
+  api_id                 = aws_apigatewayv2_api.visitor_counter.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.cost_dashboard.invoke_arn
+  payload_format_version = "2.0"
+}
+
+resource "aws_apigatewayv2_route" "cost_dashboard" {
+  api_id    = aws_apigatewayv2_api.visitor_counter.id
+  route_key = "GET /status"
+  target    = "integrations/${aws_apigatewayv2_integration.cost_dashboard.id}"
+}
+
+resource "aws_lambda_permission" "api_gateway_cost" {
+  statement_id  = "AllowAPIGatewayCostInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.cost_dashboard.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.visitor_counter.execution_arn}/*/*"
+}

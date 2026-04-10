@@ -38,6 +38,14 @@ data "aws_iam_policy_document" "lambda_permissions" {
     ]
     resources = ["arn:aws:logs:*:*:*"]
   }
+  statement {
+    sid    = "CostExplorerAccess"
+    effect = "Allow"
+    actions = [
+      "ce:GetCostAndUsage"
+    ]
+    resources = ["*"]
+  }
 }
 
 resource "aws_iam_role_policy" "lambda_policy" {

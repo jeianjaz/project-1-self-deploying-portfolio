@@ -28,3 +28,8 @@ output "api_gateway_url" {
   description = "API Gateway URL for visitor counter"
   value       = "${aws_apigatewayv2_api.visitor_counter.api_endpoint}/count"
 }
+
+output "cost_api_url" {
+  description = "API Gateway URL for cost dashboard"
+  value       = "${aws_apigatewayv2_api.visitor_counter.api_endpoint}/status"
+}
