@@ -4,83 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infrastructure Status | Jeian Jasper</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <h1>Infrastructure Status</h1>
-        <p class="subtitle">Real-time AWS cost & resource dashboard</p>
-        <p class="links">
-            <a href="index.html">← Back to Portfolio</a>
-        </p>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 z-50">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-zinc-100 font-semibold tracking-tight">JJ</a>
+            <div class="flex items-center gap-6 text-sm">
+                <a href="index.html" class="text-zinc-400 hover:text-zinc-100 transition-colors">Portfolio</a>
+                <a href="#cost" class="text-zinc-400 hover:text-zinc-100 transition-colors">Cost</a>
+                <a href="#infra" class="text-zinc-400 hover:text-zinc-100 transition-colors">Infrastructure</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="max-w-3xl mx-auto px-6 pt-32 pb-12">
+        <a href="index.html" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors mb-4 inline-block">&larr; Back to Portfolio</a>
+        <h1 class="text-3xl sm:text-4xl font-bold text-zinc-50 tracking-tight">Infrastructure Status</h1>
+        <p class="mt-2 text-zinc-400">Real-time AWS cost and resource dashboard</p>
     </header>
 
-    <main>
-        <section>
-            <h2>AWS Cost This Month</h2>
-            <p id="cost-period">Loading...</p>
-            <p id="cost-total" style="font-size: 2rem; color: #58a6ff; font-weight: bold;">...</p>
-            <p id="cost-message"></p>
-        </section>
+    <main class="max-w-3xl mx-auto px-6">
 
-        <section>
-            <h2>Cost Breakdown by Service</h2>
-            <div id="cost-services">
-                <p>Loading cost data...</p>
+        <!-- Cost Overview -->
+        <section id="cost" class="py-12 border-t border-zinc-800/50">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6">AWS Cost This Month</h2>
+
+            <div class="p-6 rounded-lg border border-zinc-800/50 bg-zinc-900/30 mb-4">
+                <p id="cost-period" class="text-sm text-zinc-500 mb-1">Loading...</p>
+                <p id="cost-total" class="text-3xl font-bold text-zinc-50 mb-1">...</p>
+                <p id="cost-message" class="text-sm text-emerald-400"></p>
             </div>
         </section>
 
-        <section>
-            <h2>Infrastructure Components</h2>
-            <div class="project">
-                <h3>Frontend</h3>
-                <p>S3 (static hosting) → CloudFront (CDN + HTTPS) → Browser</p>
-            </div>
-            <div class="project">
-                <h3>Backend</h3>
-                <p>API Gateway (HTTP API) → Lambda (Python 3.12) → DynamoDB (visitor counter)</p>
-            </div>
-            <div class="project">
-                <h3>CI/CD</h3>
-                <p>GitHub Actions → Checkov security scan → Terraform validate → S3 sync → CloudFront invalidation</p>
-            </div>
-            <div class="project">
-                <h3>Security</h3>
-                <p>S3 public access blocked | CloudFront OAC | IAM least privilege | Checkov scanning | HTTPS enforced</p>
+        <!-- Cost Breakdown -->
+        <section class="py-12 border-t border-zinc-800/50">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6">Cost Breakdown by Service</h2>
+            <div id="cost-services" class="space-y-2">
+                <p class="text-sm text-zinc-500">Loading cost data...</p>
             </div>
         </section>
+
+        <!-- Infrastructure -->
+        <section id="infra" class="py-12 border-t border-zinc-800/50">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-zinc-500 mb-6">Infrastructure Components</h2>
+
+            <div class="space-y-3">
+                <div class="p-4 rounded-lg border border-zinc-800/50 bg-zinc-900/30">
+                    <div class="flex items-center gap-3 mb-1.5">
+                        <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                        <h3 class="text-zinc-100 font-medium text-sm">Frontend</h3>
+                    </div>
+                    <p class="text-sm text-zinc-400 ml-5">S3 (static hosting) &rarr; CloudFront (CDN + HTTPS) &rarr; Browser</p>
+                </div>
+
+                <div class="p-4 rounded-lg border border-zinc-800/50 bg-zinc-900/30">
+                    <div class="flex items-center gap-3 mb-1.5">
+                        <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                        <h3 class="text-zinc-100 font-medium text-sm">Backend</h3>
+                    </div>
+                    <p class="text-sm text-zinc-400 ml-5">API Gateway (HTTP API) &rarr; Lambda (Python 3.12) &rarr; DynamoDB</p>
+                </div>
+
+                <div class="p-4 rounded-lg border border-zinc-800/50 bg-zinc-900/30">
+                    <div class="flex items-center gap-3 mb-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <h3 class="text-zinc-100 font-medium text-sm">CI/CD</h3>
+                    </div>
+                    <p class="text-sm text-zinc-400 ml-5">GitHub Actions &rarr; Checkov Scan &rarr; Terraform Validate &rarr; S3 Sync &rarr; CloudFront Invalidation</p>
+                </div>
+
+                <div class="p-4 rounded-lg border border-zinc-800/50 bg-zinc-900/30">
+                    <div class="flex items-center gap-3 mb-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <h3 class="text-zinc-100 font-medium text-sm">Security</h3>
+                    </div>
+                    <p class="text-sm text-zinc-400 ml-5">S3 public access blocked · CloudFront OAC · IAM least privilege · Checkov scanning · HTTPS enforced</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-        <p>Provisioned by Terraform | Deployed via GitHub Actions</p>
+    <!-- Footer -->
+    <footer class="max-w-3xl mx-auto px-6 py-12 border-t border-zinc-800/50">
+        <p class="text-sm text-zinc-500 text-center">Provisioned by Terraform · Deployed via GitHub Actions</p>
     </footer>
 
     <script>
-        const API_URL = 'https://vahv75gzk6.execute-api.ap-southeast-1.amazonaws.com/status';
-
-        fetch(API_URL)
+        fetch('https://vahv75gzk6.execute-api.ap-southeast-1.amazonaws.com/status')
             .then(response => response.json())
             .then(data => {
-                document.getElementById('cost-period').textContent = `Period: ${data.period}`;
+                document.getElementById('cost-period').textContent = data.period;
                 document.getElementById('cost-total').textContent = `$${data.total_cost} ${data.currency}`;
                 document.getElementById('cost-message').textContent = data.message;
 
                 const servicesDiv = document.getElementById('cost-services');
                 if (data.services.length === 0) {
-                    servicesDiv.innerHTML = '<p>No costs recorded yet — running on free tier! 🎉</p>';
+                    servicesDiv.innerHTML = '<p class="text-sm text-emerald-400">No costs recorded — running on free tier</p>';
                 } else {
                     servicesDiv.innerHTML = data.services.map(s =>
-                        `<div class="project" style="display:flex; justify-content:space-between; padding:0.8rem 1.2rem;">
-                            <span>${s.service}</span>
-                            <span style="color:#58a6ff; font-weight:bold;">$${s.cost}</span>
+                        `<div class="flex items-center justify-between p-3 rounded-lg border border-zinc-800/50 bg-zinc-900/30">
+                            <span class="text-sm text-zinc-300">${s.service}</span>
+                            <span class="text-sm text-zinc-100 font-medium">$${s.cost}</span>
                         </div>`
                     ).join('');
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 document.getElementById('cost-total').textContent = 'N/A';
                 document.getElementById('cost-message').textContent = 'Could not fetch cost data';
-                console.error('Error:', error);
             });
     </script>
 </body>
