@@ -1,4 +1,4 @@
-# Self-Deploying Portfolio 🚀
+# CloudDeck - Self-Deploying Portfolio 
 
 A serverless portfolio website on AWS — all infrastructure provisioned by **Terraform**, auto-deployed via **GitHub Actions**, security-scanned by **Checkov**, with a real-time **cost dashboard**.
 
