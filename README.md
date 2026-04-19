@@ -97,6 +97,21 @@ Runs within **AWS Free Tier**:
 
 ---
 
+## Architecture Decisions
+
+The reasoning behind key technical choices (DynamoDB over RDS, Lambda over
+EC2, CloudFront OAC over signed URLs, Checkov in CI) is documented as ADRs
+in [`docs/decisions/`](./docs/decisions/).
+
+| ADR | Decision |
+|-----|----------|
+| [001](./docs/decisions/001-dynamodb-over-rds.md) | DynamoDB over RDS for visitor counter |
+| [002](./docs/decisions/002-cloudfront-oac-over-signed-urls.md) | CloudFront with OAC over signed URLs |
+| [003](./docs/decisions/003-lambda-apigateway-over-ec2.md) | Lambda + API Gateway over EC2 backend |
+| [004](./docs/decisions/004-checkov-in-ci.md) | Checkov in CI before `terraform apply` |
+
+---
+
 ## Deploy
 
 **Automated:** Push to `master` → GitHub Actions does everything.
