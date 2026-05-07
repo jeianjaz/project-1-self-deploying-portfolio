@@ -2,7 +2,7 @@
 
 A serverless portfolio website on AWS — all infrastructure provisioned by **Terraform**, auto-deployed via **GitHub Actions**, security-scanned by **Checkov**, with a real-time **cost dashboard**.
 
-**Live:** [https://df4afxcfwis2q.cloudfront.net](https://df4afxcfwis2q.cloudfront.net) · **Status:** [/status.html](https://df4afxcfwis2q.cloudfront.net/status.html)
+**Live:** [https://www.jeianjasper.me](https://www.jeianjasper.me) · **Status:** [/status.html](https://www.jeianjasper.me/status.html)
 
 ---
 
