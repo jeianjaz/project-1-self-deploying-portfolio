@@ -241,32 +241,38 @@
                 </a>
 
                 <!-- Project 2 -->
-                <div class="group p-5 rounded-xl border border-zinc-800/50 hover:border-purple-500/20 bg-zinc-900/30 hover:bg-zinc-900/60 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300">
+                <a href="https://github.com/jeianjaz/project-2-autotier" target="_blank" class="block group p-5 rounded-xl border border-zinc-800/50 hover:border-purple-500/30 bg-zinc-900/30 hover:bg-zinc-900/60 hover:shadow-lg hover:shadow-purple-500/5 transition-all duration-300">
                     <div class="flex items-start justify-between mb-2">
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/></svg>
                             </div>
                             <div>
-                                <h3 class="text-zinc-100 font-semibold">AutoTier</h3>
+                                <h3 class="text-zinc-100 font-semibold group-hover:text-purple-400 transition-colors">AutoTier</h3>
                                 <p class="text-xs text-zinc-500">Self-Healing 3-Tier Infrastructure on AWS</p>
                             </div>
                         </div>
-                        <span class="text-xs text-zinc-500 bg-zinc-800 px-2.5 py-1 rounded-full font-medium">Coming Soon</span>
+                        <span class="text-xs text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>MTTR: 80s
+                        </span>
                     </div>
                     <p class="text-sm text-zinc-400 leading-relaxed mb-3 sm:ml-11">
-                        Terraform-provisioned VPC + EC2 + RDS with CloudWatch alarms triggering Lambda for auto-recovery. Includes architecture decision records and incident runbooks.
+                        Multi-AZ 3-tier architecture with automated self-healing. CloudWatch alarms trigger SNS &rarr; Lambda to terminate unhealthy instances; ASG replaces them in 80 seconds. Chaos-tested with measured MTTR, 6 ADRs, incident runbook, and CI/CD with Checkov.
                     </p>
                     <div class="flex flex-wrap gap-2 sm:ml-11">
                         <span class="text-xs text-zinc-500">Terraform</span>
                         <span class="text-xs text-zinc-600">&middot;</span>
-                        <span class="text-xs text-zinc-500">VPC + EC2 + RDS</span>
+                        <span class="text-xs text-zinc-500">ALB + ASG + RDS</span>
                         <span class="text-xs text-zinc-600">&middot;</span>
-                        <span class="text-xs text-zinc-500">CloudWatch</span>
+                        <span class="text-xs text-zinc-500">Lambda</span>
                         <span class="text-xs text-zinc-600">&middot;</span>
-                        <span class="text-xs text-zinc-500">Auto-Recovery</span>
+                        <span class="text-xs text-zinc-500">CloudWatch + SNS</span>
+                        <span class="text-xs text-zinc-600">&middot;</span>
+                        <span class="text-xs text-zinc-500">Chaos Engineering</span>
+                        <span class="text-xs text-zinc-600">&middot;</span>
+                        <span class="text-xs text-zinc-500">Checkov</span>
                     </div>
-                </div>
+                </a>
 
                 <!-- Project 3 -->
                 <div class="group p-5 rounded-xl border border-zinc-800/50 hover:border-amber-500/20 bg-zinc-900/30 hover:bg-zinc-900/60 hover:shadow-lg hover:shadow-amber-500/5 transition-all duration-300">
