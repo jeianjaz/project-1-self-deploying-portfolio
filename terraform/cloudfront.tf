@@ -41,8 +41,12 @@ resource "aws_cloudfront_distribution" "website" {
     }
   }
 
+  aliases = ["jeianjasper.me", "www.jeianjasper.me"]
+
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = "arn:aws:acm:us-east-1:611619956605:certificate/bc625099-44d5-49cf-9c89-160139198d79"
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = {
